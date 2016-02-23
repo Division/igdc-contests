@@ -1,0 +1,155 @@
+[------0] "eXgine 0.80" log start
+[------6] Network : Initialized
+[------0] Network : Description : WinSock 2.0
+[------0] Network : MaxSockets  : 32767
+[------1] Network : MaxSize UDP : 65467
+[------0] Input   : Keyboard ready
+[------0] Input   : Mouse    ready
+[------1] Input   : Joystick not ready
+[-----22] Window  : Create main window
+[------8] OpenGL  : Init graphics core
+[----256] OpenGL  : GL_VENDOR   : NVIDIA Corporation
+[------0] OpenGL  : GL_RENDERER : GeForce 8600 GT/PCI/SSE2/3DNOW!
+[------0] OpenGL  : GL_VERSION  : 2.1.1
+[------0] OpenGL  : MAX_TEX_UNITS  : 4
+[------0] OpenGL  : MAX_TEX_SIZE   : 8192
+[------0] OpenGL  : MAX_ANISOTROPY : 16
+[------0] OpenGL  : USE_AA_SAMPLES : 0
+[------0] OpenGL  : Reading extensions
+[------0] OpenGL  : + WGL_EXT_swap_control
+[------0] OpenGL  : + GL_ARB_multitexture
+[------0] OpenGL  : + GL_EXT_framebuffer_object
+[------1] OpenGL  : + GL_ARB_shading_language
+[------0] OpenGL  : + GL_ARB_vertex_buffer_object
+[-----25] Texture : Create #2	*Font_FixedSys_0*
+[-----91] Sound   : DirectSound Initialized
+[------0] Sound   : Can't initialize Ogg Vorbis
+[----202] Shader  : Compile #1
+[-----63] Shader  : Compile #4
+[-----46] Shader  : Compile #7
+[-----26] Shader  : Compile #10
+[-----44] Shader  : Compile #13
+[-----23] Shader  : Compile #16
+[-----11] Texture : Loaded #3	DATA\Textures\console.jpg
+[-----46] Texture : Loaded #4	data\textures\road.jpg
+[-----31] Texture : Loaded #5	data\textures\roadline.jpg
+[-----24] Texture : Loaded #6	data\textures\bump.jpg
+[------1] Texture : Error Loading "data\textures\table.jpg"
+[------4] Texture : Loaded #7	data\textures\particles\particle.bmp
+[------2] Texture : Loaded #8	data\textures\particles\particle1.bmp
+[------2] Texture : Loaded #9	data\textures\particles\particle2.tga
+[-----45] Texture : Loaded #10	data\textures\car1_tex.jpg
+[-----16] Texture : Loaded #11	data\textures\car2_tex.jpg
+[-----17] Texture : Loaded #12	data\textures\car3_tex.jpg
+[------3] Texture : Loaded #13	data\textures\car4_tex.jpg
+[-----33] Texture : Loaded #14	data\textures\car5_tex.jpg
+[-----15] Texture : Loaded #15	data\textures\car6_tex.jpg
+[-----21] Texture : Loaded #16	data\textures\weapons\MachineGun_c.jpg
+[------9] Texture : Loaded #17	data\textures\weapons\rocket.jpg
+[------8] Texture : Loaded #18	data\textures\weapons\plasma_c.jpg
+[-----14] Texture : Loaded #19	data\textures\weapons\MachineGun2.jpg
+[------9] Texture : Loaded #20	data\textures\weapons\MachineGun1.jpg
+[------3] Texture : Loaded #21	data\textures\weapons\Plasmagun.jpg
+[-----30] Texture : Loaded #22	data\textures\weapons\RocketLauncher.jpg
+[-----15] Texture : Loaded #23	data\textures\objects\WeaponBase_normal.jpg
+[------8] Texture : Loaded #24	data\textures\objects\WeaponBase_tex.jpg
+[------9] Texture : Loaded #25	data\textures\objects\WeaponBase_line.jpg
+[-----12] Texture : Loaded #26	data\textures\objects\Box_tex.jpg
+[-----24] Texture : Loaded #27	data\textures\objects\Box_line.jpg
+[-----25] Texture : Loaded #28	data\textures\rings\spacering1_normal.jpg
+[-----15] Texture : Loaded #29	data\textures\rings\spacering1_tex.jpg
+[-----16] Texture : Loaded #30	data\textures\rings\spacering1_line.jpg
+[-----14] Texture : Loaded #31	data\textures\rings\spacering1_normal_add.jpg
+[-----15] Texture : Loaded #32	data\textures\rings\spacering1_tex2.jpg
+[-----14] Texture : Loaded #33	data\textures\rings\spacering1_line_add.jpg
+[-----28] Texture : Loaded #34	data\textures\rings\SpaceRing2_normal.jpg
+[------7] Texture : Loaded #35	data\textures\rings\SpaceRing2_add_tex.jpg
+[-----16] Texture : Loaded #36	data\textures\rings\spacering2_tex.jpg
+[-----15] Texture : Loaded #37	data\textures\rings\spacering2_line.jpg
+[------0] Texture : Loaded #38	data\textures\objects\meteor_tex.JPG
+[-----33] Texture : Loaded #39	data\textures\objects\satelite2_normal.jpg
+[-----15] Texture : Loaded #40	data\textures\objects\satellite2.jpg
+[-----13] Texture : Loaded #41	data\textures\objects\satelite2_line.jpg
+[-----15] Texture : Loaded #42	data\textures\objects\satelite1_normal.jpg
+[-----16] Texture : Loaded #43	data\textures\objects\satellite1.jpg
+[------1] Texture : Loaded #44	data\textures\objects\satelite1_line.jpg
+[-----43] Texture : Loaded #45	data\textures\objects\epic_normal.jpg
+[------5] Texture : Loaded #46	data\textures\objects\epic_tex.jpg
+[-----17] Texture : Loaded #47	data\textures\objects\epic_line.jpg
+[-----27] Texture : Loaded #48	data\textures\rings\spacering3_tex.jpg
+[-----27] Texture : Loaded #49	data\textures\rings\spacering3_line.jpg
+[-----23] Texture : Loaded #50	data\textures\garbage\dirt1_normal.jpg
+[-----31] Texture : Loaded #51	data\textures\garbage\dirt1_tex.jpg
+[-----15] Texture : Loaded #52	data\textures\garbage\dirt1_line.jpg
+[-----14] Texture : Loaded #53	data\textures\garbage\dirt2_normal.jpg
+[------1] Texture : Error Loading "data\textures\garbage\dirt2_tex.jpg"
+[------8] Texture : Loaded #54	data\textures\garbage\dirt2_line.jpg
+[------4] Texture : Loaded #55	data\textures\garbage\dirt3_normal.jpg
+[-----17] Texture : Loaded #56	data\textures\garbage\dirt3_tex.jpg
+[-----14] Texture : Loaded #57	data\textures\garbage\dirt3_line.jpg
+[-----28] Texture : Create #58	*Font_Arial_1*
+[-----48] Texture : Loaded #59	data\textures\sky\sky.jpg
+[-----15] Texture : Error Loading "data\textures\sky\line_sky.tga"
+[-----51] Shader  : Compile #18
+[----122] Engine  : Main Loop start
+[--10775] Engine  : Main Loop stop
+[------0] Texture : Unload #7	data\textures\particles\particle.bmp
+[------0] Texture : Unload #8	data\textures\particles\particle1.bmp
+[------0] Texture : Unload #9	data\textures\particles\particle2.tga
+[-----15] Texture : Unload #2	*Font_FixedSys_0*
+[------0] Texture : Unload #56	data\textures\garbage\dirt3_tex.jpg
+[------0] Texture : Unload #55	data\textures\garbage\dirt3_normal.jpg
+[------0] Texture : Unload #54	data\textures\garbage\dirt2_line.jpg
+[------0] Texture : Unload #53	data\textures\garbage\dirt2_normal.jpg
+[------0] Texture : Unload #52	data\textures\garbage\dirt1_line.jpg
+[------0] Texture : Unload #51	data\textures\garbage\dirt1_tex.jpg
+[------0] Texture : Unload #50	data\textures\garbage\dirt1_normal.jpg
+[------0] Texture : Unload #49	data\textures\rings\spacering3_line.jpg
+[------1] Texture : Unload #48	data\textures\rings\spacering3_tex.jpg
+[------0] Texture : Unload #47	data\textures\objects\epic_line.jpg
+[------0] Texture : Unload #46	data\textures\objects\epic_tex.jpg
+[------0] Texture : Unload #45	data\textures\objects\epic_normal.jpg
+[------0] Texture : Unload #44	data\textures\objects\satelite1_line.jpg
+[------0] Texture : Unload #43	data\textures\objects\satellite1.jpg
+[------0] Texture : Unload #42	data\textures\objects\satelite1_normal.jpg
+[------0] Texture : Unload #41	data\textures\objects\satelite2_line.jpg
+[------0] Texture : Unload #40	data\textures\objects\satellite2.jpg
+[------0] Texture : Unload #39	data\textures\objects\satelite2_normal.jpg
+[------0] Texture : Unload #38	data\textures\objects\meteor_tex.JPG
+[------0] Texture : Unload #37	data\textures\rings\spacering2_line.jpg
+[------0] Texture : Unload #36	data\textures\rings\spacering2_tex.jpg
+[------1] Texture : Unload #35	data\textures\rings\SpaceRing2_add_tex.jpg
+[------0] Texture : Unload #34	data\textures\rings\SpaceRing2_normal.jpg
+[------0] Texture : Unload #33	data\textures\rings\spacering1_line_add.jpg
+[------0] Texture : Unload #32	data\textures\rings\spacering1_tex2.jpg
+[------0] Texture : Unload #31	data\textures\rings\spacering1_normal_add.jpg
+[------0] Texture : Unload #30	data\textures\rings\spacering1_line.jpg
+[------0] Texture : Unload #29	data\textures\rings\spacering1_tex.jpg
+[------0] Texture : Unload #28	data\textures\rings\spacering1_normal.jpg
+[------0] Texture : Unload #27	data\textures\objects\Box_line.jpg
+[------1] Texture : Unload #26	data\textures\objects\Box_tex.jpg
+[------0] Texture : Unload #25	data\textures\objects\WeaponBase_line.jpg
+[------0] Texture : Unload #24	data\textures\objects\WeaponBase_tex.jpg
+[------0] Texture : Unload #23	data\textures\objects\WeaponBase_normal.jpg
+[------0] Texture : Unload #22	data\textures\weapons\RocketLauncher.jpg
+[------0] Texture : Unload #21	data\textures\weapons\Plasmagun.jpg
+[------0] Texture : Unload #20	data\textures\weapons\MachineGun1.jpg
+[------0] Texture : Unload #19	data\textures\weapons\MachineGun2.jpg
+[------0] Texture : Unload #18	data\textures\weapons\plasma_c.jpg
+[------0] Texture : Unload #17	data\textures\weapons\rocket.jpg
+[------0] Texture : Unload #16	data\textures\weapons\MachineGun_c.jpg
+[-----16] Texture : Unload #15	data\textures\car6_tex.jpg
+[-----16] Texture : Unload #14	data\textures\car5_tex.jpg
+[------0] Texture : Unload #13	data\textures\car4_tex.jpg
+[------1] Texture : Unload #12	data\textures\car3_tex.jpg
+[------0] Texture : Unload #11	data\textures\car2_tex.jpg
+[------0] Texture : Unload #10	data\textures\car1_tex.jpg
+[------0] Texture : Unload #57	data\textures\garbage\dirt3_line.jpg
+[------0] Texture : Unload #58	*Font_Arial_1*
+[------0] Texture : Unload #59	data\textures\sky\sky.jpg
+[------0] Texture : Unload #6	data\textures\bump.jpg
+[------1] Texture : Unload #5	data\textures\roadline.jpg
+[------0] Texture : Unload #4	data\textures\road.jpg
+[------0] Texture : Unload #3	DATA\Textures\console.jpg
+[-----14] Window  : Destroy main window
+[------0] "eXgine 0.80" log close

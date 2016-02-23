@@ -1,0 +1,66 @@
+body {
+	margin:0px;
+	padding:0px;
+	color:black;
+	font-family: Arial;
+	padding-left:20px;
+	margin-bottom:50px;
+}
+
+a {
+	color:blue;
+}
+
+a:hover{
+	color:black;
+	text-decoration:none;
+}
+
+table,tr,td {
+	border-collapse:collapse;
+}
+
+table {
+	margin-left:20px;
+}
+
+td {
+	padding:10px;
+	border:1px solid black;
+	text-align:left;
+	text-indent:0px;
+}
+
+div#title {
+	padding-top:20px;
+	text-align:center;
+	font-size:20px;
+}
+
+div#contents {
+	width:200px;
+	border:1px solid black;
+	padding:10px;
+	line-height:22px;
+	margin-bottom:50px;
+}
+
+div.header {
+	margin-top:50px;
+	letter-spacing:2px;
+	font-weight:bold;
+}
+
+div.content {
+	padding-left:20px;
+	text-indent:20px;
+}
+
+div#egg {
+	font-size:25px;
+	vertical-align:top;
+}
+
+div#eggcont {
+	padding-left:20px;
+}

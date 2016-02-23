@@ -1,0 +1,122 @@
+[------0] "eXgine 0.80" log start
+[-----11] Network : Initialized
+[------1] Network : Description : WinSock 2.0
+[------0] Network : MaxSockets  : 32767
+[------0] Network : MaxSize UDP : 65467
+[------0] Input   : Keyboard ready
+[------0] Input   : Mouse    ready
+[-----14] Input   : Joystick not ready
+[----160] Window  : Create main window
+[-----75] OpenGL  : Init graphics core
+[----405] OpenGL  : GL_VENDOR   : NVIDIA Corporation
+[-----23] OpenGL  : GL_RENDERER : GeForce 8600 GT/PCI/SSE2/3DNOW!
+[-----30] OpenGL  : GL_VERSION  : 2.1.1
+[-----37] OpenGL  : MAX_TEX_UNITS  : 4
+[-----21] OpenGL  : MAX_TEX_SIZE   : 8192
+[-----29] OpenGL  : MAX_ANISOTROPY : 16
+[-----29] OpenGL  : USE_AA_SAMPLES : 0
+[-----29] OpenGL  : Reading extensions
+[-----29] OpenGL  : + WGL_EXT_swap_control
+[-----58] OpenGL  : + GL_ARB_multitexture
+[-----45] OpenGL  : + GL_EXT_framebuffer_object
+[-----47] OpenGL  : + GL_ARB_shading_language
+[-----39] OpenGL  : + GL_ARB_vertex_buffer_object
+[-----46] Texture : Create #2	*Font_FixedSys_0*
+[----273] Sound   : DirectSound Initialized
+[----100] Sound   : Can't initialize Ogg Vorbis
+[----274] Texture : Loaded #3	data\textures\cars\player.jpg
+[-----79] Texture : Loaded #4	data\textures\cars\player2.jpg
+[-----61] Texture : Loaded #5	data\textures\cars\player3.jpg
+[-----45] Texture : Loaded #6	data\textures\cars\jeep.jpg
+[-----31] Texture : Loaded #7	data\textures\cars\supra2.jpg
+[-----29] Texture : Loaded #8	data\textures\cars\supra.jpg
+[-----24] Texture : Loaded #9	data\textures\objects\izmeritel.jpg
+[-----15] Texture : Loaded #10	data\textures\objects\cap.jpg
+[-----28] Texture : Loaded #11	data\textures\objects\calendar.jpg
+[-----31] Texture : Loaded #12	data\textures\objects\telephone.jpg
+[-----31] Texture : Loaded #13	data\textures\objects\stepler.jpg
+[-----18] Texture : Loaded #14	data\textures\objects\skrepka_st.jpg
+[-----23] Texture : Loaded #15	data\textures\objects\skrepka.jpg
+[-----28] Texture : Loaded #16	data\textures\objects\cigaret.jpg
+[-----28] Texture : Loaded #17	data\textures\objects\pen.jpg
+[-----24] Texture : Loaded #18	data\textures\objects\podstavka.jpg
+[-----47] Texture : Loaded #19	data\textures\objects\cigaret_box.jpg
+[-----72] Texture : Loaded #20	data\textures\objects\papka.jpg
+[-----50] Texture : Loaded #21	data\textures\objects\nojnici.jpg
+[-----27] Texture : Loaded #22	data\textures\objects\monitor.jpg
+[-----34] Texture : Loaded #23	data\textures\objects\rooler.jpg
+[-----17] Texture : Loaded #24	data\textures\objects\eracer.jpg
+[-----42] Texture : Loaded #25	data\textures\objects\book.jpg
+[-----35] Texture : Loaded #26	data\textures\objects\disc.jpg
+[-----40] Texture : Loaded #27	data\textures\objects\paper.jpg
+[-----30] Texture : Loaded #28	data\textures\objects\cube.jpg
+[-----29] Texture : Loaded #29	data\textures\objects\flag.jpg
+[-----42] Texture : Create #30	*Font_Arial_1*
+[-----28] Texture : Create #31	DefaultBlur.tga
+[-----34] Texture : Loaded #32	DATA\Textures\console.jpg
+[-----31] Texture : Loaded #33	data\textures\road.jpg
+[-----41] Texture : Loaded #34	data\textures\table.jpg
+[-----51] Texture : Loaded #35	data\textures\buttons\newgame.jpg
+[-----26] Texture : Loaded #36	data\textures\buttons\newgameover.jpg
+[-----26] Texture : Loaded #37	data\textures\buttons\continue.jpg
+[-----26] Texture : Loaded #38	data\textures\buttons\continueover.jpg
+[-----40] Texture : Loaded #39	data\textures\buttons\about.jpg
+[-----25] Texture : Loaded #40	data\textures\buttons\aboutover.jpg
+[-----33] Texture : Loaded #41	data\textures\buttons\quit.jpg
+[-----18] Texture : Loaded #42	data\textures\buttons\quitover.jpg
+[-----22] Texture : Loaded #43	data\textures\buttons\arr1.jpg
+[-----20] Texture : Loaded #44	data\textures\buttons\arr2.jpg
+[-----21] Texture : Loaded #45	data\textures\buttons\next.jpg
+[-----20] Texture : Loaded #46	data\textures\buttons\nextover.jpg
+[-----19] Texture : Loaded #47	data\textures\cursor.tga
+[-----20] Engine  : Main Loop start
+[--25546] Engine  : Main Loop stop
+[-----22] Texture : Unload #2	*Font_FixedSys_0*
+[-----33] Texture : Unload #47	data\textures\cursor.tga
+[-----21] Texture : Unload #46	data\textures\buttons\nextover.jpg
+[-----20] Texture : Unload #45	data\textures\buttons\next.jpg
+[-----21] Texture : Unload #44	data\textures\buttons\arr2.jpg
+[-----29] Texture : Unload #43	data\textures\buttons\arr1.jpg
+[-----24] Texture : Unload #42	data\textures\buttons\quitover.jpg
+[-----22] Texture : Unload #41	data\textures\buttons\quit.jpg
+[-----20] Texture : Unload #40	data\textures\buttons\aboutover.jpg
+[-----21] Texture : Unload #39	data\textures\buttons\about.jpg
+[-----20] Texture : Unload #38	data\textures\buttons\continueover.jpg
+[-----25] Texture : Unload #37	data\textures\buttons\continue.jpg
+[-----30] Texture : Unload #36	data\textures\buttons\newgameover.jpg
+[-----20] Texture : Unload #35	data\textures\buttons\newgame.jpg
+[-----21] Texture : Unload #34	data\textures\table.jpg
+[-----21] Texture : Unload #33	data\textures\road.jpg
+[-----21] Texture : Unload #32	DATA\Textures\console.jpg
+[-----20] Texture : Unload #31	DefaultBlur.tga
+[-----21] Texture : Unload #30	*Font_Arial_1*
+[-----21] Texture : Unload #29	data\textures\objects\flag.jpg
+[-----21] Texture : Unload #28	data\textures\objects\cube.jpg
+[-----20] Texture : Unload #27	data\textures\objects\paper.jpg
+[-----21] Texture : Unload #26	data\textures\objects\disc.jpg
+[-----21] Texture : Unload #25	data\textures\objects\book.jpg
+[-----21] Texture : Unload #24	data\textures\objects\eracer.jpg
+[-----20] Texture : Unload #23	data\textures\objects\rooler.jpg
+[-----21] Texture : Unload #22	data\textures\objects\monitor.jpg
+[-----20] Texture : Unload #21	data\textures\objects\nojnici.jpg
+[-----22] Texture : Unload #20	data\textures\objects\papka.jpg
+[-----20] Texture : Unload #19	data\textures\objects\cigaret_box.jpg
+[-----21] Texture : Unload #18	data\textures\objects\podstavka.jpg
+[-----20] Texture : Unload #17	data\textures\objects\pen.jpg
+[-----22] Texture : Unload #16	data\textures\objects\cigaret.jpg
+[-----20] Texture : Unload #15	data\textures\objects\skrepka.jpg
+[-----21] Texture : Unload #14	data\textures\objects\skrepka_st.jpg
+[-----20] Texture : Unload #13	data\textures\objects\stepler.jpg
+[-----22] Texture : Unload #12	data\textures\objects\telephone.jpg
+[-----20] Texture : Unload #11	data\textures\objects\calendar.jpg
+[-----21] Texture : Unload #10	data\textures\objects\cap.jpg
+[-----20] Texture : Unload #9	data\textures\objects\izmeritel.jpg
+[-----22] Texture : Unload #8	data\textures\cars\supra.jpg
+[-----20] Texture : Unload #7	data\textures\cars\supra2.jpg
+[-----21] Texture : Unload #6	data\textures\cars\jeep.jpg
+[-----20] Texture : Unload #5	data\textures\cars\player3.jpg
+[-----30] Texture : Unload #4	data\textures\cars\player2.jpg
+[-----20] Texture : Unload #3	data\textures\cars\player.jpg
+[----277] Window  : 1024x768x32x100
+[----157] Window  : Destroy main window
+[-----28] "eXgine 0.80" log close

@@ -1,0 +1,15 @@
+[VP Particles]
+
+void main(void) {
+	float cosa = cos(gl_MultiTexCoord1.y);
+	float sina = sin(gl_MultiTexCoord1.y);
+	mat4 rMat = mat4(vec4(cosa,sina,0.0,0.0),vec4(-sina,cosa,0,0),vec4(0.0),vec4(0.0));
+	vec4 left = (gl_ModelViewMatrix[0]) * (gl_MultiTexCoord0.x-0.5)*gl_MultiTexCoord1.x;
+	vec4 up = (gl_ModelViewMatrix[1]) * (gl_MultiTexCoord0.y-0.5)*gl_MultiTexCoord1.x;
+	mat4 offset = mat4(left,up,vec4(0.0),vec4(0.0));
+	offset = rMat * offset;
+	gl_Position = gl_ModelViewProjectionMatrix * (gl_Vertex + offset[0] + offset[1]);
+	
+	gl_TexCoord[0] = gl_MultiTexCoord0;
+	gl_FrontColor = gl_Color;
+}

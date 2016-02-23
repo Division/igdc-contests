@@ -1,0 +1,181 @@
+<html>
+
+<head>
+  <title>Toys For Big Boys</title>
+  <link type="text/css" rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <h1>Toys For Big Boys</h1>
+  <div class="contents">
+    <span style="font-weight:bold; color:orange">Содержание</span>
+	<div style="padding-left:10px;">
+    	<ul>
+          <li><a href="#game">Игра и её фишки</a>
+          <li><a href="#control">Управление</a>
+          <li><a href="#details">Технические подробности</a>
+          <li><a href="#console">Консольные команды</a>
+          <li><a href="#editor">Редактор</a>
+          <li><a href="#authors">Разработчики</a>
+    	</ul>
+    </div>
+  </div>
+
+  <a name="game"></a> <span class="title">Игра и её фишки</span>
+  <div class="content">
+    Игра представляет собой гонки на плоскости с видом сверху. Выполнена в 3D.
+    На данный момент играть можно только одному с компьютером, хотя в дальнейшем
+    планируется сплит скрин. AI не то чтобы очень глуп, вполне осмысленно едет по карте.
+    Теперь есть мысли по его улучшению. Но это потом. Каждая машинка обладает своими
+    характеристиками, по-своему ведет себя на дороге. AI тоже разный у каждой.
+    Можно выбрать себе машину перед заездом. Чтобы перейти на следующую карту, нужно
+    придти хотя бы вторым. В игре разнообразное трехмерное окружение и реалистичная физика,
+    которая не оставит вас равнодушным (:
+  </div>
+  <a name="control"></a> <span class="title">Управление</span>
+    <table width=200 style="margin-top:10px; margin-bottom:20px;">
+      <tr>
+        <td width="50%">
+          Газ
+        </td>
+        <td width="50%">
+          W
+        </td>
+      </tr>
+      <tr>
+        <td width="50%">
+          Назад
+        </td>
+        <td width="50%">
+          S
+        </td>
+      </tr>
+      <tr>
+        <td width="50%">
+          Влево
+        </td>
+        <td width="50%">
+          A
+        </td>
+      </tr>
+      <tr>
+        <td width="50%">
+          Вправо
+        </td>
+        <td width="50%">
+          D
+        </td>
+      </tr>
+      <tr>
+        <td width="50%">
+          Ручник
+        </td>
+        <td width="50%">
+          Space
+        </td>
+      </tr>
+
+    </table>
+
+  <a name="details"></a> <span class="title">Технические подробности</span>
+  <div class="content">
+  Среда разработки: Delphi10 Lite. В версиях ниже врядли скомпилится из-за перегрузки операторов.
+  Используется eXgine, так что OpenGL. Физика - по статье "Advanced Character Physics". То есть
+  что-то вроде систем частиц и интегрирования Верлета. Только чуть упростил. Машинки представлены
+  как две окружности, соединенные констрейнтом. Трение - за счет проецирования предыдущей позиции
+  частиц на линию движения.
+  </div>
+  <a name="console"></a> <span class="title">Консольные команды</span>
+    <table width=500 style="margin-top:10px; margin-bottom:20px;">
+      <tr>
+        <td width="20%">
+          Help
+        </td>
+        <td width="80%">
+          Список всех команд.<br>
+          Help &lt;имя команды&gt; - краткая справка по команде.
+        </td>
+      </tr>
+      <tr>
+        <td width="20%">
+          Clear
+        </td>
+        <td width="80%">
+          Очистить консоль
+        </td>
+      </tr>
+      <tr>
+        <td width="20%">
+          Quit
+        </td>
+        <td width="80%">
+          Выход
+        </td>
+      </tr>
+      <tr>
+        <td width="20%">
+          Follow
+        </td>
+        <td width="80%">
+          Привязить камеру к машинке.
+          <br>Follow &lt;индекс&gt;
+          <br>Индекс от 0 до 5
+        </td>
+      </tr>
+
+      <tr>
+        <td width="20%">
+          LoadLevel
+        </td>
+        <td width="80%">
+          Загрузить карту
+          <br>LoadMap &lt;имя_карта&gt;
+          <br> имя карты без расширения. Все карты лежат в папке Maps.
+          <br> Если вы сделаете карту в редакторе загрузить её можно будет через эту команду.
+        </td>
+      </tr>
+      <tr>
+        <td width="20%">
+          ShowFPS
+        </td>
+        <td width="80%">
+          Показывать ли FPS.<br>
+          Может быть 0 или 1.
+        </td>
+      </tr>
+    </table>
+
+  <a name="editor"></a> <span class="title">Редактор</span>
+  <div class="content">
+  Редактор дружественным интерфейсом не обладает. Глючит временами. Но, тем не менее, все
+  чудесные карты, которые вы видели в игре, сделаны именно в нем.
+  Если кто сумеет сделать карту, то сохраняем в папке maps с расширением .map и грузим в игре
+  из консоли командой <br>LoadLevel &lt;имя_карты_без_расширения&gt;
+  </div>
+
+  <a name="authors"></a> <span class="title">Разработчики</span>
+  <div class="content" style="margin-bottom:0px;">
+  Программирование: Сидоренко Никита (Division)
+  </div>
+  <div class="contacts">
+  e-mail:<a href="mailto:Division88@list.ru">Division88@list.ru</a><br>
+  icq: 479077728
+  </div>
+  <div class="content" style="margin-bottom:0px;">
+  3D-моделирование, текстуры: Внуков Кирилл (Neyron)
+  </div>
+  <div class="contacts">
+  e-mail:<a href="mailto:Neyron89@inbox.ru">Neyron89@inbox.ru</a><br>
+  icq: 455617594
+  </div>
+  <div class="content" style="margin-bottom:0px;">
+  Графика, текстуры: Кокоев Макс (Antichrist)
+  </div>
+  <div class="contacts">
+  e-mail:<a href="mailto:kokoiev@mail.ru">kokoiev@mail.ru</a><br>
+  icq: 373809255
+  </div>
+
+</body>
+
+</html>

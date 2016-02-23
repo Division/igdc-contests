@@ -1,0 +1,23 @@
+[VP sky]
+
+void main(void) {
+
+	gl_Position = gl_ModelViewProjectionMatrix * gl_Vertex;
+
+	gl_TexCoord[0] = gl_MultiTexCoord0;
+}
+
+[FP sky]
+
+uniform sampler2D Texture;
+uniform sampler2D Lines;
+
+void main(void) {
+
+	vec4 color = texture2D(Texture,gl_TexCoord[0].xy);
+	vec4 line = texture2D(Lines,gl_TexCoord[0].xy);
+//	gl_FragColor = mix(color,line*2,line.a);
+//	gl_FragColor = color*(1-line.a);
+	gl_FragColor = color;
+
+}

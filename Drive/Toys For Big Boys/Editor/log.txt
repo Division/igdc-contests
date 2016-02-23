@@ -1,0 +1,66 @@
+[------0] "eXgine 0.80" log start
+[-----12] Network : Initialized
+[------0] Network : Description : WinSock 2.0
+[------0] Network : MaxSockets  : 32767
+[------0] Network : MaxSize UDP : 65467
+[------0] Input   : Keyboard ready
+[------0] Input   : Mouse    ready
+[-----20] Input   : Joystick not ready
+[-----36] Window  : Setting main window
+[------0] OpenGL  : Init graphics core
+[----203] OpenGL  : GL_VENDOR   : NVIDIA Corporation
+[------0] OpenGL  : GL_RENDERER : GeForce 8600 GT/PCI/SSE2/3DNOW!
+[------0] OpenGL  : GL_VERSION  : 2.1.1
+[------0] OpenGL  : MAX_TEX_UNITS  : 4
+[------0] OpenGL  : MAX_TEX_SIZE   : 8192
+[------0] OpenGL  : MAX_ANISOTROPY : 16
+[------0] OpenGL  : USE_AA_SAMPLES : 0
+[------0] OpenGL  : Reading extensions
+[------0] OpenGL  : + WGL_EXT_swap_control
+[------1] OpenGL  : + GL_ARB_multitexture
+[------1] OpenGL  : + GL_EXT_framebuffer_object
+[------3] OpenGL  : + GL_ARB_shading_language
+[-----15] OpenGL  : + GL_ARB_vertex_buffer_object
+[-----23] Texture : Create #2	*Font_FixedSys_0*
+[-----34] Sound   : DirectSound Initialized
+[------0] Sound   : Can't initialize Ogg Vorbis
+[------6] Texture : Loaded #3	..\data\textures\objects\izmeritel.jpg
+[------4] Texture : Loaded #4	..\data\textures\objects\cap.jpg
+[-----12] Texture : Loaded #5	..\data\textures\objects\calendar.jpg
+[-----11] Texture : Loaded #6	..\data\textures\objects\telephone.jpg
+[------4] Texture : Loaded #7	..\data\textures\objects\stepler.jpg
+[------1] Texture : Loaded #8	..\data\textures\objects\skrepka_st.jpg
+[------4] Texture : Loaded #9	..\data\textures\objects\cigaret.jpg
+[------9] Texture : Loaded #10	..\data\textures\objects\pen.jpg
+[------5] Texture : Loaded #11	..\data\textures\objects\podstavka.jpg
+[-----11] Texture : Loaded #12	..\data\textures\objects\cigaret_box.jpg
+[------6] Texture : Loaded #13	..\data\textures\objects\papka.jpg
+[------4] Texture : Loaded #14	..\data\textures\objects\nojnici.jpg
+[------2] Texture : Loaded #15	..\data\textures\objects\monitor.jpg
+[------3] Texture : Loaded #16	..\data\textures\objects\rooler.jpg
+[------2] Texture : Loaded #17	..\data\textures\objects\eracer.jpg
+[-----11] Texture : Loaded #18	..\data\textures\objects\book.jpg
+[------7] Texture : Loaded #19	..\data\textures\objects\disc.jpg
+[------1] Texture : Loaded #20	..\data\textures\objects\paper.jpg
+[------6] Texture : Loaded #21	..\data\textures\objects\cube.jpg
+[---5188] Texture : Unload #2	*Font_FixedSys_0*
+[------9] Texture : Unload #21	..\data\textures\objects\cube.jpg
+[------1] Texture : Unload #20	..\data\textures\objects\paper.jpg
+[------0] Texture : Unload #19	..\data\textures\objects\disc.jpg
+[------0] Texture : Unload #18	..\data\textures\objects\book.jpg
+[------0] Texture : Unload #17	..\data\textures\objects\eracer.jpg
+[------0] Texture : Unload #16	..\data\textures\objects\rooler.jpg
+[------0] Texture : Unload #15	..\data\textures\objects\monitor.jpg
+[------0] Texture : Unload #14	..\data\textures\objects\nojnici.jpg
+[------0] Texture : Unload #13	..\data\textures\objects\papka.jpg
+[------0] Texture : Unload #12	..\data\textures\objects\cigaret_box.jpg
+[------0] Texture : Unload #11	..\data\textures\objects\podstavka.jpg
+[------0] Texture : Unload #10	..\data\textures\objects\pen.jpg
+[------0] Texture : Unload #9	..\data\textures\objects\cigaret.jpg
+[------0] Texture : Unload #8	..\data\textures\objects\skrepka_st.jpg
+[------0] Texture : Unload #7	..\data\textures\objects\stepler.jpg
+[------0] Texture : Unload #6	..\data\textures\objects\telephone.jpg
+[------0] Texture : Unload #5	..\data\textures\objects\calendar.jpg
+[------0] Texture : Unload #4	..\data\textures\objects\cap.jpg
+[------1] Texture : Unload #3	..\data\textures\objects\izmeritel.jpg
+[------3] "eXgine 0.80" log close

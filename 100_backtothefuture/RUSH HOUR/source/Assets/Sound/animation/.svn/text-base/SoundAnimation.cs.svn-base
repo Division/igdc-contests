@@ -1,0 +1,75 @@
+using UnityEngine;
+using System.Collections;
+
+public abstract class SoundAnimation : MonoBehaviour
+{
+	
+	//**************************************************************************
+	//
+	// Public
+	//
+	//**************************************************************************
+	
+	//**************************************************************************
+	// initialization
+	
+	public void initialize(float inStartTime, float inDuration)
+	{
+		startTime = inStartTime;
+		duration = inDuration;
+	}
+	
+	//**************************************************************************
+	//
+	// MonoBehaviour
+	//
+	//**************************************************************************
+	
+	void Start()
+	{
+		audioController = GetComponent<SoundPlaybackController>();
+	}
+	
+	//--------------------------------------------------------------------------
+	
+	void FixedUpdate()
+	{
+		float animEndTime = startTime + duration;
+		bool isInsideAnimationPeriod = (startTime <= Time.time) && ( Time.time <= animEndTime);
+		
+		if (isInsideAnimationPeriod)
+		{
+			float koef = Mathf.Clamp01((Time.time - startTime) / duration);
+			doAnimation(koef);
+		}
+		
+		if (Time.time > animEndTime)
+		{
+			Destroy(this);
+		}
+	}
+	
+	//**************************************************************************
+	//
+	// Protected
+	//
+	//**************************************************************************
+	
+	//-------------------
+	// Animation data
+	protected float startTime;
+	protected float duration;
+	
+	//-------------------
+	// Audio source
+	protected SoundPlaybackController audioController;
+	
+	
+	//**************************************************************************
+	// Animation process
+	
+	// Koef is changed between 0 and 1
+	abstract protected void doAnimation(float koef);
+	
+}
+

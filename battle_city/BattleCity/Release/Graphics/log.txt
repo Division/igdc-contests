@@ -1,0 +1,62 @@
+[------0] "eXgine 0.65" log start
+[-----27] Input   : Keyboard ready
+[------3] Input   : Mouse    ready
+[-----27] Input   : Joystick not ready
+[-----12] Window  : Create main window
+[-----23] OpenGL  : init graphics core
+[----341] OpenGL  : GL_VENDOR   : NVIDIA Corporation
+[-----16] OpenGL  : GL_RENDERER : GeForce FX 5200/AGP/SSE2
+[-----11] OpenGL  : GL_VERSION  : 2.0.1
+[------9] OpenGL  : MAX_TEX_UNITS  : 4
+[-----10] OpenGL  : MAX_TEX_SIZE   : 4096
+[------8] OpenGL  : MAX_ANISOTROPY : 8
+[------9] OpenGL  : USE_AA_SAMPLES : 0
+[------8] OpenGL  : Reading extensions
+[-----17] OpenGL  : - WGL_EXT_swap_control		: Ok
+[------8] OpenGL  : - GL_ARB_multitexture		: Ok
+[------8] OpenGL  : - GL_EXT_framebuffer_object		: Ok
+[-----25] OpenGL  : - GL_ARB_shading_language		: Ok
+[-----18] OpenGL  : - GL_ARB_vertex_buffer_object	: Ok
+[----187] Sound   : DirectSound Initialized
+[-----54] Texture : Create ID: 2	blur.tga
+[-----26] Texture : Loaded ID: 3	Tank1.tga
+[-----16] Texture : Loaded ID: 4	Tank2.tga
+[-----16] Texture : Loaded ID: 5	Tank3.tga
+[-----17] Texture : Loaded ID: 6	Tank4.tga
+[-----18] Texture : Loaded ID: 7	Wall1.bmp
+[-----16] Texture : Loaded ID: 8	Wall2.bmp
+[-----25] Texture : Loaded ID: 9	Wall5.bmp
+[-----17] Texture : Loaded ID: 10	Wall6.bmp
+[-----16] Texture : Loaded ID: 11	Water.bmp
+[-----16] Texture : Loaded ID: 12	Web1.tga
+[-----17] Texture : Loaded ID: 13	Web2.tga
+[-----16] Texture : Loaded ID: 14	Eagle.tga
+[-----27] Texture : Loaded ID: 15	Back.bmp
+[-----16] Texture : Loaded ID: 16	Patr.tga
+[----108] Texture : Loaded ID: 17	Logo.jpg
+[-----19] Texture : Loaded ID: 18	Speed.tga
+[-----13] Texture : Loaded ID: 19	Health.tga
+[-----25] Texture : Loaded ID: 20	Reload.tga
+[----116] Engine  : Main Loop start
+[--16153] Engine  : Main Loop stop
+[-----22] Texture : Unload ID: 2	blur.tga
+[-----18] Texture : Unload ID: 20	Reload.tga
+[-----16] Texture : Unload ID: 19	Health.tga
+[-----16] Texture : Unload ID: 18	Speed.tga
+[-----17] Texture : Unload ID: 17	Logo.jpg
+[-----32] Texture : Unload ID: 16	Patr.tga
+[-----18] Texture : Unload ID: 15	Back.bmp
+[-----17] Texture : Unload ID: 14	Eagle.tga
+[-----17] Texture : Unload ID: 13	Web2.tga
+[-----16] Texture : Unload ID: 12	Web1.tga
+[-----25] Texture : Unload ID: 11	Water.bmp
+[-----17] Texture : Unload ID: 10	Wall6.bmp
+[-----17] Texture : Unload ID: 9	Wall5.bmp
+[-----16] Texture : Unload ID: 8	Wall2.bmp
+[-----17] Texture : Unload ID: 7	Wall1.bmp
+[-----16] Texture : Unload ID: 6	Tank4.tga
+[-----25] Texture : Unload ID: 5	Tank3.tga
+[-----16] Texture : Unload ID: 4	Tank2.tga
+[-----17] Texture : Unload ID: 3	Tank1.tga
+[----234] Window  : Destroy main window
+[-----90] "eXgine 0.65" log close

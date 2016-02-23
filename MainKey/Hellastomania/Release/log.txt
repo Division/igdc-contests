@@ -1,0 +1,34 @@
+[------0] "eXgine 0.72" log start
+[-----29] Input   : Keyboard ready
+[------8] Input   : Mouse    ready
+[----688] Window  : Create main window
+[----227] OpenGL  : init graphics core
+[---1268] OpenGL  : GL_VENDOR   : ATI Technologies Inc.
+[----134] OpenGL  : GL_RENDERER : ATI MOBILITY RADEON X700 
+[-----22] OpenGL  : GL_VERSION  : 2.0.6347 Release
+[-----12] OpenGL  : MAX_TEX_UNITS  : 8
+[-----11] OpenGL  : MAX_TEX_SIZE   : 2048
+[-----11] OpenGL  : MAX_ANISOTROPY : 16
+[-----33] OpenGL  : USE_AA_SAMPLES : 0
+[-----36] OpenGL  : Reading extensions
+[------9] OpenGL  : - WGL_EXT_swap_control		: Ok
+[-----11] OpenGL  : - GL_ARB_multitexture		: Ok
+[-----89] Texture : Create #2	*Font_FixedSys_0*
+[----285] Texture : Create #3	CircleTex
+[-----47] Texture : Create #4	LeadTex
+[-----45] Texture : Create #5	ArrowTex
+[-----25] Texture : Create #6	BackTex
+[-----20] Texture : Create #7	blur
+[-----49] Texture : Create #8	*Font_Arial_1*
+[-----36] Engine  : Main Loop start
+[-208069] Engine  : Main Loop stop
+[-----42] Texture : Unload #2	*Font_FixedSys_0*
+[-----21] Texture : Unload #8	*Font_Arial_1*
+[-----23] Texture : Unload #7	blur
+[-----21] Texture : Unload #6	BackTex
+[-----35] Texture : Unload #5	ArrowTex
+[-----21] Texture : Unload #4	LeadTex
+[-----23] Texture : Unload #3	CircleTex
+[----795] Window  : 1280x800x32x60
+[----387] Window  : Destroy main window
+[----173] "eXgine 0.72" log close

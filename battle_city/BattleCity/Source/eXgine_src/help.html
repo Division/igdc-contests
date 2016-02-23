@@ -1,0 +1,434 @@
+<HTML>
+	<HEAD>
+		<title>eXgine v0.65 help</title>
+		<meta name="author" content="XProger">
+		<meta http-equiv="Content-Type" content="text/html; charset=windows-1251">
+		<style>
+			a			{text-decoration: none;}
+			a.c1		{color: #FFAAAA;}
+			a.c1:hover	{color: #FF0000;}
+			a.c2		{color: #DDAAAA;}
+			a.c2:hover	{color: #DD0000;}
+			div.code	{font-family: Courier; font-size: 2; background: #DFDFDF;}
+			font.c		{font-family: Courier; font-size: 2; font-weight: bold;}
+		</style>
+	</HEAD>
+	<BODY bgcolor="#ECECEC" text="#000000">
+		<a name="start"/>
+		<div align="right"><font size="2" face="Courier New"><a class="c1" href="mailto:XProger@list.ru"><b>XProger</b></a></font></div>
+		<center><font color="#CF0F0F" size="7" face="Impact"><u>eXgine</u> <font size="3"><a class="c2" href="http://xproger.mirgames.ru">v0.65</a></font></font></center>
+		<UL type="disc" title="Объекты eXgine" style="color: #FF0000">
+			<LI><a class="c2" href="#about"><b>Описание</b></a></LI>
+			<LI><a class="c2" href="#tmpl"><b>Шаблон</b></a></LI>
+			<LI><a class="c2" href="#eng"><b>Engine</b></a></LI>
+			<LI><a class="c2" href="#log"><b>Log</b></a></LI>
+			<LI><a class="c2" href="#wnd"><b>Window</b></a></LI>
+			<LI><a class="c2" href="#inp"><b>Input</b></a></LI>
+			<LI><a class="c2" href="#ogl"><b>OpenGL</b></a></LI>
+			<LI><a class="c2" href="#vbo"><b>VBuffer</b></a></LI>			
+			<LI><a class="c2" href="#tex"><b>Texture</b></a></LI>
+			<LI><a class="c2" href="#vfp"><b>Shader</b></a></LI>
+			<LI><a class="c2" href="#snd"><b>Sound</b></a></LI>
+			<LI><a class="c2" href="#vec"><b>Vector</b></a></LI>
+			<LI><a class="c2" href="#his"><b>История разработки</b></a></LI>
+		</UL>
+
+	<p><hr>
+	<a name="about"/><center><h3 style="color: #DD0000">Описание</h3></center>
+	&nbsp;<b>eXgine</b> (далее именуемый - движок) является функциональным ядром любого игрового (и не только) движка. Распространяется в виде бесплатной (для любых целей) динамической библиотеки <b>eXgine.dll</b> с открытым исходным кодом, ориентированной на использование в Delphi. Первоначальная цель его создания - помочь своему создателю в вынесении кода рутинной системщины за пределы приложения (чтобы глаза не мозолила), при этом сочетать хорошую функциональность и относительно малый размер. В итоге, знания заложенные в библиотеку создали достаточно хороший и удобный фундамент для создания игры...<br>
+	&nbsp;В основу архитектуры заложены принципы ООП, призванной дать удобный и быстрый доступ к функциям объектов движка. На данный момент он состоит из 10 основных объектов. Использование или неиспользование каждого из которых является сугубо личным правом программиста. Объекты построены по принципу интерфейсов (абстрактных/виртуальных объектов) содержащих указатели на реализацию своих методов.<br>
+	&nbsp;Не запрещено использование кода библиотеки в своих (быть может корыстных ;) целях. Автор библиотеки не несёт никакой ответственности за работу его кода, но заинтересован в корректности этой работы... так что, любые замечания готов услышать и учесть :)<br>
+	&nbsp;К возможностям или достоинствам движка можно причислить:
+	<UL type="disc">
+		<LI>Ведение лога с таймингом операций</LI>
+		<LI>Синхронизирующий выполнение Update и Render таймер</LI>
+		<LI>Использование <b>OpenGL</b> в качестве графического API с прямым доступом к контексту</LI>
+		<LI>Загрузка <b>tga, bmp, jpg, gif</b> текстур из файла или потока</LI>
+		<LI>Rendering в текстуру с использованием <b>Frame Buffer Object</b></LI>
+		<LI>Удобная работа с <b>Vertex Buffer Object</b> для вывода многополигональных моделей</LI>
+		<LI>Менеджер текстур</LI>
+		<LI>Удобная работа с <b>GLSL</b> вершинными и фрагментными программами (шейдеры)</LI>
+		<LI>Поддержка клавиатуры, мыши и джойстика</LI>
+		<LI><b>DirectSound</b> (любой версии) для многоканального вывода 3D звука</LI>
+		<LI>Воспроизведение музыки и видео <b>wav, mid, mp3, wma, avi, mpg, asf</b> и др. форматов</LI>
+		<LI>Звуковой менеджер</LI>
+		<LI>Удобство использования благодаря ООП архитектуре</LI>
+		<LI>Открытый исходнй код</LI>
+		<LI>Бесплатен для любых целей</LI>
+		<LI><b>eXgine.dll</b> имеет размер не более <b>30 kb</b> в сжатом виде!</LI>
+	</UL>
+	&nbsp;Данный документ описывает результат и работу функций основных объектов движка.<br>
+	<div align="right"><a class="c2" href="#start">меню</a></div>
+	</p>
+	
+	<p><hr>
+	<a name="tmpl"/><center><h3 style="color: #DD0000">Шаблон</h3></center>	
+	&nbsp;Обычный проект основанный на eXgine выглядит приблизительно так:<br>
+<pre>
+<b>program</b> ex_tmpl;
+
+<b>uses</b>
+  OpenGL, eXgine;
+
+<b>procedure</b> Update;
+<b>begin</b>
+<font color="Navy"><i>// Выход при нажатии Escape (код клавиши 27)</i></font>
+  <b>if</b> inp.Down(<font color="Navy">27</font>) <b>then</b> eX.Quit;
+<b>end</b>;
+
+<b>procedure</b> Render;
+<b>begin</b>
+  ogl.Clear(True, True);
+  ogl.Set3D(<font color="Navy">90</font>, <font color="Navy">0.1</font>, <font color="Navy">512</font>);
+<font color="Navy"><i>// ...здесь вывод каких-то 3D объектов... </i></font>
+  tex.Disable;
+  ogl.Set2D(<font color="Navy">0</font>, <font color="Navy">0</font>, wnd.Width, wnd.Height);
+  glColor3ub(random(<font color="Navy">256</font>), random(<font color="Navy">256</font>), random(<font color="Navy">256</font>));
+  ogl.TextOut(<font color="Navy">0</font>, <font color="Navy">224</font>, <font color="Navy">248</font>, <font color="Navy">'Драфствуйте!'</font>);  <font color="Navy"><i>// Вывод 2D графики - текста</i></font>  
+<b>end</b>;
+  
+<b>begin</b>
+  wnd.Create(<font color="Navy">'Main Window'</font>);
+  eX.SetProc(PROC_UPDATE, @Update);
+  eX.SetProc(PROC_RENDER, @Render);
+  log.Print(<font color="Navy">'Hello World!'</font>);  <font color="Navy"><i>// Дурью маемся ;)</i></font>
+<font color="Navy"><i>// Установка полноэкранного режима</i></font>
+  wnd.Mode(True, <font color="Navy">640</font>, <font color="Navy">480</font>, <font color="Navy">32</font>, <font color="Navy">85</font>);
+<font color="Navy"><i>// Вход в главный цикл</i></font>
+  eX.MainLoop(<font color="Navy">50</font>);
+<b>end</b>.
+</pre>
+	<div align="right"><a class="c2" href="#start">меню</a></div>
+	</p>
+	
+	<p><hr>
+	<a name="eng"/><center><h3 style="color: #DD0000">IEngine</h3></center>
+	&nbsp;Основной интерфейс посредством которого реализуется доступ к остальным объектам движка.<br>
+	&nbsp;eXgine.dll содержит функцию exInit, которая производит инициализацию всех объектов и возвращает основной IEngine объект. В стандартном заголовке к библиотеке <i>eXgine.pas</i>, при инициализации значения первых 8 функций записываются в одноимённые глобальные переменные, основной же объект IEngine находится в переменной <b>eX</b>.<br>
+	<UL type="disc" title="Методы IEngine:eX">
+		<LI><div class="code"><b>function</b>&nbsp; log: ILog</div>&nbsp;После инициализации возвращает объект отвечающий за ведение лога.</div></LI>
+		<LI><div class="code"><b>function</b>&nbsp; wnd: IWindow</div>&nbsp;Возвращает объект отвечающий за основное окно приложения.</LI>
+		<LI><div class="code"><b>function</b>&nbsp; inp: IInput</div>&nbsp;Получение объекта для контроля ввода с клавиатуры, мыши и джойстика.</LI>
+		<LI><div class="code"><b>function</b>&nbsp; ogl: IOpenGL</div>&nbsp;Объект-надстройка над основными функциями OpenGL API.</LI>
+		<LI><div class="code"><b>function</b>&nbsp; vbo: IVBuffer</div>&nbsp;Объект отвечающий за хранение и вывод геометрии.</LI>
+		<LI><div class="code"><b>function</b>&nbsp; tex: ITexture</div>&nbsp;Возвращает объект тесно связанный с OpenGL и обеспечивающий контроль над текстурами.</LI>
+		<LI><div class="code"><b>function</b>&nbsp; vfp: IShader</div>&nbsp;Надстройка над OpenGL призванная облегчить работу с шейдерами.</LI>
+		<LI><div class="code"><b>function</b>&nbsp; snd: ISound</div>&nbsp;Возвращает основной объект звукового модуля.</LI>
+		<LI><div class="code"><b>function</b>&nbsp; vec: IVector</div>&nbsp;Математический объект содержащий основные операции для работы с векторами.</LI>
+		<LI><div class="code"><b>function</b>&nbsp; Version: PChar</div>&nbsp;Даёт текущую версию библиотеки eXgine вида <i>"eXgine x.xx"</i></LI>
+		<LI><div class="code"><b>procedure</b> SetProc(ID: Integer; Proc: Pointer)</div>&nbsp;Установка основных процедур вызываемых движком. Каждая процедура описывается идентификатором и соответствующему ей указателю:
+			<UL type="circle">
+				<LI><div class="code">PROC_UPDATE&nbsp; : <b>procedure</b></div>&nbsp;Вызывается с частотой UPS (Updates Per Second) заданной при вызове MainLoop. Предназначена для обновления состояния игры (физические расчёты). Таймер работает постоянно синхронизируя частоту с реальным временем, если время затраченное на эту процедуру превысит 1000/UPS мс - игра повиснет до тех пор, пока оно не уменьшится. Т.е. иногда (при тормозах) метод Update вызывается несколько раз подряд. После тяжёлых расчётов (смена уровня игры, подгрузка моделей и т.п.) рекомендуется вызывать ResetTimer для сброса синхронизации таймера.</LI>
+				<LI><div class="code">PROC_RENDER&nbsp; : <b>procedure</b></div>&nbsp;Вызывается с максимально возможной частотой FPS (Frames Per Second). Предназначена для отрисовки.</LI>
+				<LI><div class="code">PROC_MESSAGE&nbsp;: <b>procedure</b> (Msg: Cardinal; wP, lP: Integer)</div>&nbsp;Вызывается при получении окном стандартных Windows сообщений после обработки их движком. Так например для получения контроля над вводом текста, достаточно обрабатывать WM_CHAR, где chr(wP) является символом с учётом текущего языка системы (при старте движок устанавливает En)</LI>
+				<LI><div class="code">PROC_ACTIVE&nbsp; : <b>procedure</b> (Active: Boolean)</div>&nbsp;Вызывается при активации/деактивации окна</LI>
+			</UL></LI>
+		<LI><div class="code"><b>procedure</b> ActiveUpdate(OnlyActive: Boolean)</div>&nbsp;Запрещает/разрешает вызов Update при неактивном окне. По умолчанию имеет значение False, т.е. вызывается всегда. Допустим для сетевой игры рекомендуется вызывать Update всегда, для SinglePlayer режимов его можно убрать при неактивном (свёрнутом) приложении.</LI>
+		<LI><div class="code"><b>function</b>&nbsp; GetTime: Integer</div>&nbsp;Время в миллисекундах прошедшее с момента старта компьютера. Считается с погрешностью до 1 мс</LI>
+		<LI><div class="code"><b>procedure</b> ResetTimer</div>&nbsp;Сброс состояния таймера-синхронизатора UPS.</LI>
+		<LI><div class="code"><b>procedure</b> MainLoop(UPS: Integer)</div>&nbsp;Вход в основной цикл приложения. Выход осуществляется вызовом Quit. UPS указывает расчётную частоту вызова Update.</LI>
+		<LI><div class="code"><b>procedure</b> Update</div>&nbsp;Вызов зарегистрированной PROC_UPDATE процедуры. Сам метод выззывается из MainLoop и отвечает за обновление статусов объектов (ввод, звук и т.д.)</LI>
+		<LI><div class="code"><b>procedure</b> Render</div>&nbsp;Вызывается из MainLoop. Отвечает за вызов процедуры зарегистрированной как PROC_RENDER и вывод всего отрисованного на экран (IOpenGL.Swap)</LI>
+		<LI><div class="code"><b>procedure</b> Quit</div>&nbsp;Оповещает движок о готовности завершить работу. Основной цикл будет завершён после текущей итерации. После вызова этой функции вызовы Update и Render прекращаются, и происходит выход из MainLoop.</LI>
+	</UL>
+	<div align="right"><a class="c2" href="#start">меню</a></div>
+	</p>
+
+	<p><hr>
+	<a name="log"/><center><h3 style="color: #DD0000">ILog</h3></center>
+	&nbsp;Объект отвечает за ведение лога. Файл лога создаётся автоматически при вызове <b>exInit</b>, или же (при указании <b>nil</b>) создаётся вручную в любое время.<br>
+	&nbsp;Во время работы приложения ведение лога можно начинать и заканчивать, возможности продолжения записи после закрытия файла - нет. Помимо записанных команд лог по умолчанию содержит тайминги в миллисекундах. Тайминг представляет из себя время с предыдущей записи в файл.<br>
+	<UL type="disc" title="Методы ILog:log">
+		<LI><div class="code"><b>function</b>&nbsp; Create(FileName: PChar): Boolean</div>&nbsp;Попытаться начать новый лог. При этом старый лог закрывается.</LI>
+		<LI><div class="code"><b>procedure</b>	Print(Text: PChar)</div>&nbsp;Вывод текста в лог.</LI>
+		<LI><div class="code"><b>function</b>&nbsp; Msg(Caption, Text: PChar; ID: Cardinal): Integer</div>&nbsp;Вывод Windows сообщения (стандартная функция MessageBox) и возвращает результат выбора пользователя (если это потребуется). В качестве ID выступают <b>MSG_</b> константы стандартного заголовка и <b>MB_</b> из <i>Windows.pas</i>.</LI>
+		<LI><div class="code"><b>procedure</b> TimeStamp(Active: Boolean)</div>&nbsp;Включить/выключить запись тайминга в лог.</LI>
+		<LI><div class="code"><b>procedure</b> Flush(Active: Boolean)</div>&nbsp;После каждой передачи строки на вывод в файл-лог, она сохраняется в буфере памяти файла (так устроена Windows) и только спустя некоторое время пишется в файл. Чтобы строка сразу же появлялась в файле, по умолчанию, вызывается функция сброса буфера, это приводит к некоторым задержкам (порядка 20 мс). Необходимость сброса в том, что при отладке приложение (в случае критической ошибки) может "вылететь" и информация подаваемая в лог потеряется. Если же файл лога не несёт отладочный характер рекомендуется отключить Flush!</LI>
+		<LI><div class="code"><b>procedure</b> Free</div>&nbsp;Закрытие файла лога. Вызывается автоматически при создании нового.</LI>
+	</UL>
+	<div align="right"><a class="c2" href="#start">меню</a></div>
+	</p>
+
+	<p><hr>
+	<a name="wnd"/><center><h3 style="color: #DD0000">IWindow</h3></center>
+	&nbsp;Объект даёт доступ к некоторым параметрам окна и видеорежима. Также производит инициализацию графического и звукового ядра.<br>
+	<UL type="disc" title="Методы IWindow:wnd">
+		<LI><div class="code"><b>function</b>&nbsp; Create(Caption: PChar; OnTop: Boolean): Boolean</div>&nbsp;Создание главного окна приложения. Caption - заголовок, OnTop - поверх всех окон. По умолчанию размеры окна 640х480. Вызов функции перед началом работы с объектами ogl, vfp, tex, inp, snd обязателен.</LI>
+		<LI><div class="code"><b>function</b>&nbsp; Create(Handle: Cardinal): Boolean</div>&nbsp;Назначает окно по указателю Handle окном программы. Основное применение - вывод на дочерние окна приложений (например VCL TPanel). Для таких окон не работают функции Show и Mode. В таких приложениях, не рекомендуется входить в основной цикл IEngine.MainLoop, а "вручную" вызывать IEngine.Update и IEngine.Render по мере надобности.</LI>
+		<LI><div class="code"><b>function</b>&nbsp; Handle: Cardinal</div>&nbsp;Стандартный Windows указатель на окно, используется в большинстве WinAPI функций...</LI>
+		<LI><div class="code"><b>procedure</b> Caption(Text: PChar)</div>&nbsp;Изменение заголовка окна.</LI>
+		<LI><div class="code"><b>function</b>&nbsp; Width: Integer</div>&nbsp;Возвращает ширину окна без учёта рамки (в оконном режиме).</LI>
+		<LI><div class="code"><b>function</b>&nbsp; Height: Integer</div>&nbsp;Высота окна.</LI>
+		<LI><div class="code"><b>function</b>&nbsp; Mode(FullScreen: Boolean; W, H, BPP, Freq: Integer): Boolean</div>&nbsp;Изменение видеорежима оконный/полноэкранный и соответственно размеров самого окна. W - ширина, H - высота, BPP - глубина цвета (16, 32), Freq - частота монитора. Пользователь может сам вызывать эту функцию с текущими (или по умолчанию) параметрами нажав комбинацию клавиш <b>Alt+Enter</b></LI>
+		<LI><div class="code"><b>procedure</b> Show(Minimized: Boolean)</div>&nbsp;Свернуть/развернуть окно.</LI>
+		<LI><div class="code"><b>function</b>&nbsp; Active: Boolean</div>&nbsp;Активно ли окно.</LI>
+	</UL>		
+	<div align="right"><a class="c2" href="#start">меню</a></div>
+	</p>
+
+	<p><hr>
+	<a name="inp"/><center><h3 style="color: #DD0000">IInput</h3></center>
+	&nbsp;Даёт информацию о состоянии устройств ввода. Такими устройствами считаются клавиатура, мышь и джойстик. В стандартном заголовке существует набор специальных констант: <b>M_</b> - клавиша мыши, <b>J</b> - джойстика. Для клавиатуры подходят стандартные Windows <b>VK_</b> константы [0..255].<br>
+	<UL type="disc" title="Методы IInput:inp">
+		<LI><div class="code"><b>procedure</b> Reset</div>&nbsp; Сброс состояний клавиш. Вызывается при активации/деактивации основного окна.</LI>
+		<LI><div class="code"><b>function</b>&nbsp; Down(Key: Integer): Boolean</div>&nbsp; Определяет нажата ли клавиша клавиатуры, мыши или джойстика. В качестве параметра для клавишь клавиатуры получает <b>VK_</b> константы [0..255], для мыши <b>M_</b> и <b>J_</b> для джойстика. Для получения значения отклонения рукоятки джойстика, используются константы J_BTN_U/D/L/R, при этом результат функции необходимо привести к целочисленному знаковому типу.</LI>
+		<LI><div class="code"><b>function</b>&nbsp; LastKey: Integer</div>&nbsp; Возвращает последнюю нажатую клавишу клавиатуры/мыши/джойстика. Может понадобиться при реализации меню настроек ввода (присваивание значений клавишам)</LI>
+		<LI><div class="code"><b>function</b>&nbsp; MDelta: TPoint</div>&nbsp; Изменение положения указателя мыши относительно цента окна с момента предыдущего Update. Работает при активном захвате.</LI>
+		<LI><div class="code"><b>function</b>&nbsp; WDelta: Integer</div>&nbsp; Сдвиг колеса со времени предыдущего вызова Update.</LI>
+		<LI><div class="code"><b>procedure</b>&nbsp; MCapture(Active: Boolean)</div>&nbsp; Установить захват (контроль) курсора мыши. При активном захвате, курсор исчезает и находится всегда в центре основного окна. Пользователь может самостоятельно снять/установить захват комбинацией клавиш <b>Alt+Space</b>.</LI>
+	</UL>	
+	<div align="right"><a class="c2" href="#start">меню</a></div>
+	</p>
+
+	<p><hr>
+	<a name="ogl"/><center><h3 style="color: #DD0000">IOpenGL</h3></center>
+	&nbsp;Объект-надстройка над графическим API. Несёт в себе набор часто необходимых функций. Становится работоспособным только после создания основного окна.<br>
+	<UL type="disc" title="Методы IOpenGL:ogl">
+		<LI><div class="code"><b>function</b>&nbsp; FPS: Integer</div>&nbsp; Возвращает текущий показатель FPS. Меняется не чаще, чем раз в секунду.</LI>
+		<LI><div class="code"><b>procedure</b> VSync(Active: Boolean)</div>&nbsp; Включение/отключение вертикальной синхронизации. Установит верхний предел FPS близкой к частоте монитора.</LI>
+		<LI><div class="code"><b>function</b>&nbsp; VSync: Boolean </div>&nbsp; Возвращает выставленное значение синхронизации.</LI>
+		<LI><div class="code"><b>procedure</b> Clear(Color, Depth, Stencil: Boolean)</div>&nbsp; Очистка буфера цвета/глубины/трафарета. Полностью аналогична вызову glClear.</LI>
+		<LI><div class="code"><b>procedure</b> Swap</div>&nbsp; Вывод содержимого BackBuffer'а на экран</LI>
+		<LI><div class="code"><b>procedure</b> AntiAliasing(Samples: Integer)</div>&nbsp; Задаёт степень сглаживания. Samples должна принимать значения 2, 4, 8, 16... Рекомендуемое - 4. Функция должна вызываться до создания главного окна и инициализации OpenGL (IWindow.Create). В случае невозможности установки заданной степени сглаживания, выбирается предыдущее по величине значение, вплоть до нуля.</LI>
+		<LI><div class="code"><b>function</b>&nbsp; AntiAliasing: Integer</div>&nbsp; Возвращает установленный режим сглаживания. Значение корректно только после создания окна и инициализации OpenGL (IWindow.Create)</LI>
+		<LI><div class="code"><b>procedure</b> Set2D(x, y, w, h: Single)</div>&nbsp; Установка ортогональной проекции. Используется для вывода 2D примитивов.</LI>
+		<LI><div class="code"><b>procedure</b> Set3D(FOV, zNear, zFar: Single)</div>&nbsp; Установка перспективной проекции. FOV - угол обзора, zNear, zFar - ближняя и дальняя плоскости отсечения. Чем больше zFar/zNear тем точнее работа с буфером глубины.</LI>
+		<LI><div class="code"><b>procedure</b> LightPos(ID: Integer; X, Y, Z: Single)</div>&nbsp; Установка позиции источника света (всего 8 штук). В качестве ID принимается GL_LIGHT0 + N, где N - номер источника света [0..7]</LI>
+		<LI><div class="code"><b>procedure</b> LightColor(ID: Integer; R, G, B: Single)</div>&nbsp; Установить цвет источника.</LI>
+		<LI><div class="code"><b>function</b>&nbsp; FontCreate(Name: PChar; W, H: Integer): TFont</div>&nbsp; Создание векторного шрифта заданной ширины и высоты. Name - название стандартного Windows шрифта.</LI>
+		<LI><div class="code"><b>procedure</b> FontFree(Font: TFont)</div>&nbsp; Удаление созданного шрифта.</LI>
+		<LI><div class="code"><b>procedure</b> TextOut(Font: TFont; X, Y: Integer; Text: PChar)</div>&nbsp; Вывод текста на экран в указанной позиции. При Font = 0 используется стандартный debug шрифт движка (fixedsys). Также перед выводом текста рекомендуется установить ортогональную проекцию.</LI>
+		<LI><div class="code"><b>procedure</b> Blend(BType: TBlendType)</div>&nbsp; Режим смешивания. Надстройка над glBlendFunc, значения параметра:
+			<UL type="circle">
+				<LI><div class="code">BT_NONE</div> отключить смешивание</LI>
+				<LI><div class="code">BT_SUB</div> стандартный режим смешивания по Alpha компонентам</LI>
+				<LI><div class="code">BT_ADD</div> режим сложения цветов</LI>
+				<LI><div class="code">BT_MULT</div> умножение цветов</LI>
+			</UL></LI>
+		<LI><div class="code"><b>function</b>&nbsp; ScreenShot(FileName: PChar): Boolean</div>&nbsp; Сохранение текущего изображения на экране в графический файл формата bmp или tga по выбору.</LI>
+	</UL>
+	<div align="right"><a class="c2" href="#start">меню</a></div>
+	</p>
+
+	<p><hr>
+	<a name="vbo"/><center><h3 style="color: #DD0000">IVBuffer</h3></center>
+	&nbsp;VBuffer (Vertex Buffer) представляет из себя контейнер данных меша (индексы вершин полигонов, координаты вершин, текстурные координаты вершин, нормали к вершинам) с функциями вывода на экран. Удобство заключается в том, что при поддержке соответствующих расширений данные сохраняются в памяти видеокарты, что позволяет разгрузить шину и повысить скорость вывода.<br>
+	&nbsp;Данные в буфере оптимизируются при его компиляции (формат хранения вершин и индексов), что позволяет достичь максимальной производительности.<br>
+	<UL type="disc" title="Методы IVBuffer:vbo">
+		<LI><div class="code"><b>procedure</b> Clear</div>&nbsp; Очистка всего переданного в Add. Пригодится в случае непредвиденной ошибки при заполнении буфера.</LI>
+		<LI><div class="code"><b>procedure</b> Add(DataType: Cardinal; Count: Cardinal; Data: Pointer)</div>&nbsp; Осуществляет заполнение данными (Data) буфера в количестве Count элементов. Существует возможность дозаписи блоков данных одного DataType, являющимся идентификатором типа данных:
+			<UL type="circle">
+				<LI><div class="code">VBO_INDEX</div> передача указателя на массив индексов вершин. Формат индекса - Cardinal</LI>
+				<LI><div class="code">VBO_VERTEX</div> передаётся указатель на массив координат вершин. Формат - TVector (3 Single)</LI>
+				<LI><div class="code">VBO_NORMAL</div> нормали для каждой вершины в формате TVector (3 Single)</LI>
+				<LI><div class="code">VBO_COLOR</div> цвета вершин формата RGBA (4 Byte)</LI>
+				<LI><div class="code">VBO_TEXCOORD1</div> задаёт текстурные координаты для вершин в формате TVector2D (2 Single) для первого тексурного блока</LI>
+				<LI><div class="code">VBO_TEXCOORD2</div> аналог предыдущего, только задаёт координаты для вкторого текстурного блока</LI>
+			</UL></LI>
+		<LI><div class="code"><b>function</b>&nbsp; Compile: TVBOid</div>&nbsp; Компиляция меша и получение его идентификатора. При ошибке возвращяет -1.</LI>
+		<LI><div class="code"><b>procedure</b> Free(ID: TVBOid)</div>&nbsp; Удаление уже скомпилированного меша по его идентификатору.</LI>
+		<LI><div class="code"><b>procedure</b> Offset(ID: TVBOid; DataType: Cardinal; Offset: Cardinal)</div>&nbsp; Задаёт смещение для элементов указанного типа, для уже спомпилированного буфера.</LI>
+		<LI><div class="code"><b>procedure</b> Render(ID: TVBOid; mode: Cardinal; Count: Integer)</div>&nbsp; Вывод меша. mode - режим (GL_QUADS, GL_TRIANGLES...), Count - количество обрабатываемых индексов (если 0 - происходит обработка всех оставшихся после Offset)</LI>
+	</UL>
+	<div align="right"><a class="c2" href="#start">меню</a></div>
+	</p>
+	
+	<p><hr>
+	<a name="tex"/><center><h3 style="color: #DD0000">ITexture</h3></center>
+	&nbsp;Осуществляет работу с текстурами. Вся система текстур построена на основе чёткого менеджмента с отловом количества ссылок на текстуру. Так например, текстура не высвободится до тех пор, пока Free не будет вызван столько же раз сколько была произведена загрузка текстуры или её создание (за исключением обновления групп текстур). Все текстуры делятся на группы, задаваемые пользователем. Это может пригодиться в экономии времени при перезагрузке большого количества (заведомо неизвестных) текстур. Идеология метода в том, что все неиспользуемые текстуры освободятся при вызове Update_End, а те что нужны не будут тронуты т.к. имел место запрос на их повторную загрузку с момента вызова Update_Begin.<br>
+	&nbsp;Помимо этого реализована поддержка мультитекстурирования и самого быстрого (на сегодняшний день) рендеринга в текстуру с использованием FBO (реализован драйвером видеокарты)</br>
+	<UL type="disc" title="Методы ITexture:tex">
+		<LI><div class="code"><b>function</b>&nbsp; Create(Name: PChar; c, f, W, H: Integer; Data: Pointer; Clamp, MipMap: Boolean; Group: Integer): TTexture</div>&nbsp;Создаёт текстуру с заданными параметрами по битовому массиву. Имя текстуры должно обладать свойством уникальности, чтобы обеспечить корректную работу менеджера. с - количество компонент цвета (1, 3, 4, GL_RGB8...), f - формат цвета (GL_RGB, GL_BGR...). Group является битовым (1, 2, 4, 8...) идентификатором группы к которой принадлежит текстура. Рекомендуется использовать текстуры размером 2^N не превышающим максимально поддерживаемый видеокартой (до 1024 - используйте смело :) Если загрузка текстуры не удалась, функция возвращает 0.</LI>
+		<LI><div class="code"><b>function</b>&nbsp; Load(FileName: PChar; Clamp, MipMap: Boolean; Group: Integer): TTexture</div>&nbsp;Загрузка текстуры из графического файла формата tga, bmp, jpg и gif. Для анимированных gif загрузится только первый кадр. Параметры имеют то же значение, что и в функции Create. Формат файла текстуры определяется по имени файла.</LI>
+		<LI><div class="code"><b>function</b>&nbsp; Load(Name: PChar; Mem: Pointer; Size: Integer; Clamp, MipMap: Boolean; Group: Integer): TTexture;</div>&nbsp;Загрузка текстуры из блока памяти по адресу Mem размером равным Size. Полностью аналогична предыдущей. По окончанию Name определяется формат загружаемой текстуры (tga, bmp, jpg, gif).</LI>
+		<LI><div class="code"><b>function</b>&nbsp; Load(FileName: PChar; var W, H, BPP: Integer; var Data: Pointer): Boolean</div>&nbsp;Загрузка данных текстуры (массива пикселей) в буфер Data (память выделяется автоматически). Возвращяет ширину (W), высоту (H), количество бит на пиксель (BPP) и указатель на данные. Результат работы функции равен True при успешной загрузке.</LI>
+		<LI><div class="code"><b>function</b>&nbsp; Load(Name: PChar; Mem: Pointer; Size: Integer; var W, H, BPP: Integer; var Data: Pointer): Boolean</div>&nbsp;Аналог предыдущей, только загрузка осуществляется из участка памяти.</LI>
+		<LI><div class="code"><b>procedure</b> Free(var Data: Pointer)</div>&nbsp;Освобождение памяти под данные текстуры выделенной предыдущими двумя функциями. После выполнения Data приравнивается к nil.</LI>
+		<LI><div class="code"><b>procedure</b> Free(ID: TTexture)</div>&nbsp;Высвобождение памяти под текстуру. При условии, что количество указателей на текстуру равно нулю.</LI>
+		<LI><div class="code"><b>procedure</b> Enable(ID: TTexture; Channel: Integer)</div>&nbsp; Включение текстуры для заданного текстурного блока (количество ограничивается видеокартой)</LI>
+		<LI><div class="code"><b>procedure</b> Disable(Channel: Integer)</div>&nbsp; Отключение текстуры для блока.</LI>
+		<LI><div class="code"><b>procedure</b> Update_Begin(Group: Integer)</div>&nbsp; Обновление группы текстур. При этом все текстуры группы помечаются специальным флагом, который снимается в случае повторной загрузки текстуры. Group является битовым флагом, т.е. может содержать в себе до 30 групп. При Group = -1 функция помечает все текстуры.</LI>
+		<LI><div class="code"><b>procedure</b> Update_End(Group: Integer)</div>&nbsp; Удаление всех помеченных флагом текстур указанной группы. Параметр -1 действует для всех групп текстур.</LI>
+		<LI><div class="code"><b>procedure</b> Filter(FilterType: Integer; Group: Integer)</div>&nbsp; Установка режима фильтрации для группы (битовый флаг):
+			<UL type="circle">
+				<LI><div class="code">FT_NONE</div>&nbsp;Отключить фильтрацию</LI>
+				<LI><div class="code">FT_BILINEAR</div>&nbsp;Билинейная фильтрация.</LI>
+				<LI><div class="code">FT_TRILINEAR</div>&nbsp;Трилинейная фильтрация для текстур с MipMap уровнями, для остальных - обычная билинейная.</LI>
+				<LI><div class="code">FT_ANISOTROPY</div>&nbsp;Анизотропная фильтрация, показывает лучшее качество изображения т.к. зависит от угла обзора. Выставляется максимально возможный уровень.</LI>
+			</UL></LI>
+		<LI><div class="code"><b>function</b>&nbsp; Render_Init(TexSize: Integer): Boolean</div>&nbsp; Инициализация FBO (Frame Buffer Object) для дальнейшего использования при рендеринге в текстуру. TexSize указывает на размер текстуры передаваемой на рендеринг. При нулевом размере - происходит высвобождение ресурсов под color и depth буферы.</LI>
+		<LI><div class="code"><b>procedure</b> Render_Copy(ID: TTexture; X, Y, W, H, Format: Integer; Level: Integer)</div>&nbsp; Копирует содержимое BackBuffer'а в текстуру. Операция не быстрая, но в некоторых случаях может пригодиться. XY - координаты начала области копирования, WH - размеры текстуры, Format - формат текстуры, Level - MipMap уровень (если таковой имеется) в который производится копирование.</LI>
+		<LI><div class="code"><b>procedure</b> Render_Begin(ID: TTexture; Mode: TTexMode)</div>&nbsp; Начинает рендеринг цвета или глубины в текстуру ID. Всё что следует после вызова этой функции будет выведено в текстуру, а не на экран. Внимание! Нельзя в рендере использовать текстуру в которую в это время производится вывод! %)</LI>
+		<LI><div class="code"><b>procedure</b> Render_End</div>&nbsp; Окончить рендеринг в текстуру. После этого полученную текстуру можно использовать по собственному усмотрению.</LI>
+	</UL>
+	<div align="right"><a class="c2" href="#start">меню</a></div>
+	</p>
+
+	<p><hr>
+	<a name="vfp"/><center><h3 style="color: #DD0000">IShader</h3></center>
+	&nbsp;Ещё одна надстройка над OpenGL обеспечивающая более удобный интерфейс для работы с шейдерами.<br>
+	&nbsp;Существует поддержка вершинных и фрагментных программ написанных на GLSL (реализован драйвером видеокарты). Следовательно если видеокарта не поддерживает ARB шейдеры (или драйвера старые) могут возникнуть ошибки...</br>
+	&nbsp;Стандартный объект IShader находится в переменной <b>vfp</b> (Vertex Fragment Program)<br>
+	<UL type="disc" title="Методы IShader:vfp">
+		<LI><div class="code"><b>function</b>&nbsp; Create: TShader</div>&nbsp;Создать объект-шейдер для дальнейшего его "наращивания" :)</LI>
+		<LI><div class="code"><b>procedure</b> Free(Shader: TShader)</div>&nbsp;Удаление объекта-шейдера.</LI>
+		<LI><div class="code"><b>function</b>&nbsp; Add(Shader: TShader;  FileName: PChar): Boolean</div>&nbsp;Прилинковать к шейдеру вершинную или фрагментную программу из файла. ShaderType имеет следующие значения:</LI>
+			<UL type="circle">
+				<LI><div class="code">ST_VERTEX</div>&nbsp;Для загрузки вершинной программы.</LI>
+				<LI><div class="code">ST_FRAGMENT</div>&nbsp;В случае загрузки фрагментной программы.</LI>
+			</UL></LI>
+		<LI><div class="code"><b>function</b>&nbsp; Add(Shader: TShader; ShaderType: Integer; Name: PChar; Mem: Pointer; Size: Integer): Boolean</div>&nbsp;Абсолютно идентична предыдущей, за исключением того, что шейдер грузится из области памяти Mem размером Size.</LI>
+		<LI><div class="code"><b>function</b>&nbsp; Link(Shader: TShader): Boolean</div>&nbsp;Общая линковка и компиляция шейдера.</LI>
+		<LI><div class="code"><b>function</b>&nbsp; GetAttrib(Shader: TShader; Name: PChar): TShAttrib</div>&nbsp;Получение указателя на параметр вершины по имени.</LI>
+		<LI><div class="code"><b>function</b>&nbsp; GetUniform(Shader: TShader; Name: PChar): TShUniform</div>&nbsp;Получение указателя на переменную шейдера по имени.</LI>
+		<LI><div class="code"><b>procedure</b> Attrib(a: TShAttrib; ...)</div>&nbsp; Передача параметров вершины в шейдер.</LI>
+		<LI><div class="code"><b>procedure</b> Uniform(u: TShUniform; ...)</div>&nbsp;Передача значения переменной шейдера.</LI>
+		<LI><div class="code"><b>procedure</b> Enable(Shader: TShader)</div>&nbsp;Включить шейдер перед выводом объекта к которому он применяется.</LI>
+		<LI><div class="code"><b>procedure</b> Disable</div>&nbsp;Отключение шейдера.</LI>
+	</UL>
+	<div align="right"><a class="c2" href="#start">меню</a></div>
+	</p>
+
+	<p><hr>
+	<a name="snd"/><center><h3 style="color: #DD0000">ISound</h3></center>
+	&nbsp;Отвечает за звук. В частности, реализован 3D звук через панорамный. Почему не 3D? Потому, что скорость и качество работы стандартного DirectSound3D не устраивает.<br>
+	&nbsp;Звуковой менеджер работает по тому же принципу, что и текстурный.<br>
+	<UL type="disc" title="Методы ISound:snd">
+		<LI><div class="code"><b>function</b>&nbsp; Load(FileName: PChar; Group: Integer): TSound</div>&nbsp;Загрузка сэмпла из несжатого стандартного Microsoft wav файла без дополнительных chunk'ов (cue и т.п.)</LI>
+		<LI><div class="code"><b>function</b>&nbsp; Load(Name: PChar; Mem: Pointer; Size: Integer; Group: Integer): TSound</div>&nbsp;Аналогична предыдущей за исключением того, что загрузка происходит из области памяти по адресу Mem размером Size</LI>
+		<LI><div class="code"><b>function</b>&nbsp; Free(ID: TSound): Boolean</div>&nbsp;Удалить сэмпл из памяти, в случае если количество ссылок на него равно нулю (иначе уменьшить счётчик на 1)</LI>
+		<LI><div class="code"><b>function</b>&nbsp; Play(ID: TSound; X, Y, Z: Single; Loop: Boolean): TChannel</div>&nbsp;Начать проигрывание сэмпла. XYZ - позиция, Loop - повторять проигрывание "бесконечно".</LI>
+		<LI><div class="code"><b>procedure</b> Stop(ID: TChannel)</div>&nbsp;Останавливает канал (сэмпл).</LI>
+		<LI><div class="code"><b>procedure</b> Update_Begin(Group: Integer)</div>&nbsp;Аналогично ITexture.Update_Begin</LI>
+		<LI><div class="code"><b>procedure</b> Update_End(Group: Integer)</div>&nbsp;Аналогично ITexture.Update_End</LI>
+		<LI><div class="code"><b>procedure</b> Volume(Value: Integer)</div>&nbsp;Установка громкости звука всех сэмплов [0..100]</LI>
+		<LI><div class="code"><b>procedure</b> Freq(Value: Integer)</div>&nbsp; Установка общей частоты звучания. Предполагается, что для нормальной скорости проигрывания, все сэмплы должны иметь ту же частоту, что задаётся этой функцией (22050 Hz по умолчанию)</LI>
+		<LI><div class="code"><b>procedure</b> Channel_Pos(ID: TChannel; X, Y, Z: Single)</div>&nbsp;Установка 3D позиции источника звука.</LI>
+		<LI><div class="code"><b>procedure</b> Pos(X, Y, Z: Single)</div>&nbsp;Установка позиции слушателя.</LI>
+		<LI><div class="code"><b>procedure</b> Dir(dX, dY, dZ, uX, uY, uZ: Single)</div>&nbsp;Изменение ориентации "головы" слушателя. dXYZ - вектор направления, uXYZ - вектор направленный вверх (относительно)</LI>
+		<LI><div class="code"><b>procedure</b> Factor_Pan(Value: Single)</div>&nbsp;Коэффициент панорамы</LI>
+		<LI><div class="code"><b>procedure</b> Factor_Rolloff(Value: Single)</div>&nbsp;Коэффициент затухания звука (громкость) в зависимости от расстояния.</LI>
+		<LI><div class="code"><b>procedure</b> PlayFile(FileName: PChar; Loop: Boolean)</div>&nbsp;Проигрывает мультимедийные файлы (звук, видео) формата wav, mp3, avi, mpg и др. Loop - повтор проигрывания после окончания.</LI>
+		<LI><div class="code"><b>procedure</b> StopFile</div>&nbsp;Остановить проигрываемый мультимедийный файл.</LI>
+	</UL>
+	<div align="right"><a class="c2" href="#start">меню</a></div>
+	</p>
+
+	<p><hr>
+	<a name="vec"/><center><h3 style="color: #DD0000">IVector</h3></center>
+	&nbsp;Объект реализующий некоторые функции векторной алгебры. Не рекомендуется использовать в критичных по скорости выполнения расчётах, т.к. до скорости работы inline функций ему очень далеко ;)<br>
+	<UL type="disc" title="Методы IVector:vec">
+		<LI><div class="code"><b>function</b>&nbsp; Create(X, Y, Z: Single): TVector</div>&nbsp;Возвращает запись-вектор по 3 координатам.</LI>
+		<LI><div class="code"><b>function</b>&nbsp; Create(X, Y: Single): TVector2D</div>&nbsp;Возвращает двухмерный вектор по 2 координатам.</LI>
+		<LI><div class="code"><b>function</b>&nbsp; Add(v1, v2: TVector): TVector</div>&nbsp;Векторная сумма.</LI>
+		<LI><div class="code"><b>function</b>&nbsp; Sub(v1, v2: TVector): TVector</div>&nbsp;Разность двух векторов.</LI>
+		<LI><div class="code"><b>function</b>&nbsp; Mult(v: TVector; x: Single): TVector</div>&nbsp;Произведение координат вектора на число.</LI>
+		<LI><div class="code"><b>function</b>&nbsp; Length(v: TVector): Single</div>&nbsp;Длина вектора.</LI>
+		<LI><div class="code"><b>function</b>&nbsp; LengthQ(v: TVector): Single</div>&nbsp;Квадрат длины вектора (работает на порядок шустрее предыдущей)</LI>
+		<LI><div class="code"><b>function</b>&nbsp; Normalize(v: TVector): TVector</div>&nbsp;Нормализация вектора (приведение к единичному)</LI>
+		<LI><div class="code"><b>function</b>&nbsp; Dot(v1, v2: TVector): Single</div>&nbsp;Скалярное произведение двух векторов.</LI>
+		<LI><div class="code"><b>function</b>&nbsp; Cross(v1, v2: TVector): TVector</div>&nbsp;Векторное произведение.</LI>
+		<LI><div class="code"><b>function</b>&nbsp; Angle(v1, v2: TVector): Single</div>&nbsp;Угол между двумя векторами (можно не единичные)</LI>
+	</UL>
+	<div align="right"><a class="c2" href="#start">меню</a></div>
+	</p>
+	
+	<p><hr>
+	<a name="his"/><center><h3 style="color: #DD0000">История разработки</h3></center>
+	<font class="c">!</font> исправлено<br>
+	<font class="c">+</font> добавлено<br>
+	<font class="c">-</font> удалено<br>
+	<UL type="disc" title="Изменения">
+	<!-- 0.65 -->
+		<LI>
+			<div class="code"><b>eXgine v0.65</b></div>
+			<UL>
+				<LI><font class="c">+</font> IOpenGL.Swap</LI>
+				<LI><font class="c">+</font> IEngine.Render и IEngine.Update можно вызывать "вручную"</LI>
+				<LI><font class="c">+</font> IWindow.Create для вывода в нужное окно</LI>
+				<LI><font class="c">+</font> IEngine.GetTime для получения точного времени с момента старта компьютера</LI>
+				<LI><font class="c">+</font> ITexture.Render_Copy для копирования содержимого BackBuffer'а в текстуру</LI>
+				<LI><font class="c">+</font> IOpenGL.AntiAliasing для установки степени сглаживания изображения</LI>
+				<LI><font class="c">+</font> ITexture.Filter меняет режим фильтрации текстур (нет, билинейный, трилинейный, анизотропный)</LI>
+				<LI><font class="c">+</font> Перегруженая IOpenGL.VSync возвращает значение вертикальной синхронизации</LI>
+				<LI><font class="c">!</font> Полностью переписан VBuffer, добавлена поддержка мультитекстурирования и дозаписи данных</LI>
+				<LI><font class="c">!</font> ITexture.Enable не задаёт повторно уже установленную для блока текстуру</LI>
+			</UL>	
+	<!-- 0.62 -->
+		<LI>
+			<div class="code"><b>eXgine v0.62</b></div>
+			<UL>
+				<LI><font class="c">+</font> Загрузка wav сэмплов из потока</LI>
+				<LI><font class="c">+</font> Загрузка вершинных и фрагментных программ из потока</LI>
+				<LI><font class="c">+</font> Теперь только IShader.Add отвечает за загрузку шейдеров обоих видов (фрагментные и вершинные)</LI>
+				<LI><font class="c">+</font> Информация о состоянии клавиши клавиатуры, мыши или джойстика узнаётся функцией IInput.Down</LI>
+				<LI><font class="c">!</font> Отлажена и исправлена ошибка с высвобождением ресурсов под FBO</LI>			
+				<LI><font class="c">-</font> Функции KDown, MDown, JDown объекта IInput были заменены общей Down</LI>
+				<LI><font class="c">-</font> IShader.AddVP и AddFP заменены общей Add</LI>
+			</UL>
+	<!-- 0.61 -->
+		<LI>
+			<div class="code"><b>eXgine v0.61</b></div>
+			<UL>
+				<LI><font class="c">+</font> Поддержка буфера цвета в VBuffer</LI>
+				<LI><font class="c">+</font> Вспомогательные функции LogOut, RGB, RGBA в eXgine.pas</LI>
+				<LI><font class="c">+</font> Перегрузка IVector.Create для TVector2D</LI>
+				<LI><font class="c">!</font> При ошибке загрузки текстуры функция ITexture.Load возвращает 0</LI>
+				<LI><font class="c">!</font> При попытке загрузки несуществующего tga файла, происходило его создание</LI>
+				<LI><font class="c">!</font> Загрузка bmp, jpg и gif файлов из потока в Win 9x системах</LI>
+			</UL>
+	<!-- 0.60 -->			
+		<LI>
+			<div class="code"><b>eXgine v0.60</b></div>
+			<UL>
+				<LI><font class="c">!</font> Ошибка при выходе из приложения скомпилированного в Delphi 10 (BDS 2006)</LI>
+				<LI><font class="c">+</font> Загрузка данных текстуры, без создания самой текстуры</LI>
+				<LI><font class="c">+</font> Введён новый объект VBuffer (vbo)</LI>
+				<LI><font class="c">-</font> KLast, MLast, JLast объекта IInput заменены одной функцией - LastKey</LI>
+			</UL>
+		</LI>	
+	<!-- 0.57 -->
+		<LI>
+			<div class="code"><b>eXgine v0.57</b></div>
+			<UL>
+				<LI><font class="c">!</font> Некорректная загрузка шейдеров из файла</LI>
+				<LI><font class="c">+</font> Загрузка текстур из памяти (потока)</LI>
+				<LI><font class="c">-</font> ISound.Create не найдёт своего применения ;)</LI>
+			</UL>
+		</LI>
+	<!-- 0.56 -->
+		<LI>
+			<div class="code"><b>eXgine v0.56</b></div>
+			<UL>
+				<LI><font class="c">!</font> Изменение Freq и BPP не учитывалось при IWindow.Mode(False...)</LI>
+				<LI><font class="c">!</font> В ISound.PlayFile параметр Loop игнорировался</LI>
+				<LI><font class="c">!</font> Все классы реализующие интерфейсы движка - наследники TInterfacedObject</LI>
+				<LI><font class="c">+</font> Возможность компиляции проекта в один exe (без eXgine.dll)
+			</UL>
+		</LI>
+	<!-- 0.55 -->
+		<LI>
+			<div class="code"><b>eXgine v0.55</b></div>
+			<UL>
+				<LI><font class="c">+</font> Возможность проигрывания мультимедийных файлов (wav, mp3, avi...)</LI>
+				<LI><font class="c">+</font> В ISound.PlayFile параметр Loop игнорировался</LI>
+				<LI><font class="c">+</font> ILog.Flush позволяет отключить сброс буфера в файл лога (ускоряет работу)</LI>
+			</UL>
+		</LI>
+	<!-- 0.51 -->
+		<LI>
+			<div class="code"><b>eXgine v0.51</b></div>
+			<UL>
+				<LI><font class="c">!</font> Прекращение поддержки MSVC++ и аналогичных компиляторов</LI>
+				<LI><font class="c">!</font> Функции интерфейсов вызываются по соглашению register (стандарт Delphi)</LI>
+				<LI><font class="c">!</font> ISound.Play не работала если источник и слушатель находились в одной точке</LI>
+				<LI><font class="c">+</font> IOpenGL.ScreenShot для сохранения изображения на экране в графический файл (bmp, tga)</LI>
+				<LI><font class="c">+</font> Регулирование OnTop окна при его создании</LI>
+			</UL>
+		</LI>
+	</UL>
+	<div align="right"><a class="c2" href="#start">меню</a></div>
+	</p>	
+	
+	</BODY>
+</HTML>

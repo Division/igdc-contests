@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<level>
+  <entities>
+    <entity>
+      <Background>
+        <image>common/graphics/background/background_1.jpg</image>
+      </Background>
+    </entity>
+    <entity>
+      <BallSpawnCreator>
+        <isStatic>1</isStatic>
+        <power>7</power>
+        <x>2.3125</x>
+        <shootDelay>0.4</shootDelay>
+        <putInPanel>0</putInPanel>
+        <ballCount>3</ballCount>
+        <ballType>1</ballType>
+        <y>3.4</y>
+        <rotation>0</rotation>
+      </BallSpawnCreator>
+    </entity>
+    <entity>
+      <BallReceiverCreator>
+        <isStatic>1</isStatic>
+        <ballType>1</ballType>
+        <ballCount>3</ballCount>
+        <y>9.2425</y>
+        <putInPanel>0</putInPanel>
+        <x>7.876250000000001</x>
+        <rotation>-1.5820000000000007</rotation>
+      </BallReceiverCreator>
+    </entity>
+    <entity>
+      <CrateCreator>
+        <isStatic>1</isStatic>
+        <putInPanel>1</putInPanel>
+        <x>10.075</x>
+        <y>3.775</y>
+        <rotation>0</rotation>
+      </CrateCreator>
+    </entity>
+  </entities>
+</level>

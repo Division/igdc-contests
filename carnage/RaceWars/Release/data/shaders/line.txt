@@ -1,0 +1,53 @@
+[VP linebump]
+
+attribute vec3 Binormal;
+attribute vec3 Tangent;
+
+uniform mat4 ViewMatrix;
+uniform vec3 LightDir;
+
+varying vec3 n;
+varying vec3 l;
+
+void main() {
+	// gl_ModelViewMatrix - Model matrix of the object
+	vec4 v = gl_ModelViewMatrix * gl_Vertex; // Wolrd-space Vertex position
+	
+	mat3 m = mat3(gl_ModelViewMatrix[0].xyz,gl_ModelViewMatrix[1].xyz,gl_ModelViewMatrix[2].xyz) * mat3(Tangent,Binormal,gl_Normal);
+	l = -LightDir;
+	l.y = -l.y;
+	l = normalize(l*m);
+	
+	gl_Position = gl_ProjectionMatrix * ViewMatrix * v;
+	gl_TexCoord[0] = gl_MultiTexCoord0;
+}
+
+[FP linebump]
+varying vec3 n;
+varying vec3 l;
+
+uniform sampler2D NormalMap;
+uniform sampler2D Texture;
+uniform sampler2D Lines;
+uniform float SunlightPower;
+uniform vec3 LineColor;
+
+void main() {
+	
+	vec3 nt = normalize(texture2D(NormalMap,gl_TexCoord[0].xy).xyz*2.0 - 1.0);
+	
+	vec3 l2 = normalize(l);
+	vec3 diffColor = vec3(texture2D(Texture,gl_TexCoord[0].xy));
+	float diff = max(dot(nt,l2),0.0)+0.2;
+
+	vec3 res = diff*diffColor*SunlightPower;
+	
+	vec4 line = texture2D(Lines, gl_TexCoord[0].xy);
+	
+	
+	if (line.x>0.1) {
+		res = mix(res, LineColor,max(1.0-SunlightPower,0.5));
+	}
+	
+	gl_FragColor = vec4(res,1);
+}
